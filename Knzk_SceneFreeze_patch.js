@@ -14,6 +14,10 @@
  * 
  * When you introduce this patch, it will cause those scene change requests to be queued until previous one resolved.
  * As this somewhat changes how the scene change is processed, please use with care. 
+ * 
+ * Special Thanks to: @Sigureya, @fuku_fgs, @rev2nym
+ * 
+ * 
  */
 
 /*:ja
@@ -29,6 +33,8 @@
  * ですので、このパッチはその際「キューにシーン遷移リクエストを累積し、順番に（前のシーンを正しく終了させた後）実行する」と言う手段を取っております。
  * 根本的にシーン遷移の仕組みを変更する為、
  * 使用時は十分にご注意ください。
+ * 
+ * スペシャルサンクス（協力していただいた方々）: @Sigureya, @fuku_fgs, @rev2nym
  */
 
 (function(){
