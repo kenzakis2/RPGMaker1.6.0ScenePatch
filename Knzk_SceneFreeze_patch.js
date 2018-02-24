@@ -36,8 +36,8 @@ SceneManager.updateMain = function() {
         this._accumulator += fTime;
         while (this._accumulator >= this._deltaTime) {
             this.updateInputData();
-            this.prepareSceneChange();
             this.loadSceneFromQueue();
+            this.prepareSceneChange();
             this.changeScene();
             this.updateScene();
             this._accumulator -= this._deltaTime;
