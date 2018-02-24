@@ -1,4 +1,5 @@
 SceneManager._loadingQueue            = [];
+SceneManager._sceneStopped            = false;
 
 SceneManager.goto = function(sceneClass) {
     if (sceneClass) {
@@ -7,8 +8,9 @@ SceneManager.goto = function(sceneClass) {
 };
 
 SceneManager.prepareSceneChange = function() {
-    if (this.isCurrentSceneStarted() && this.isSceneChanging()) {
+    if (this.isCurrentSceneStarted() && this.isSceneChanging() && !this._sceneStopped) {
         this._scene.stop();
+        this._sceneStopped = true;
     }
 }
 
@@ -60,6 +62,7 @@ SceneManager.changeScene = function() {
             this._scene.attachReservation();
             this._scene.create();
             this._sceneStarted = false;
+            this._sceneStopped = false;
             this.onSceneCreate();
         }
         if (this._exiting) {
